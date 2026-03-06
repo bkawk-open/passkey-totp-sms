@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passkey TOTP SMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Passkey TOTP SMS</h1>
+
+        <div id="authView" class="auth-form">
+            <label for="phone" class="form-label">Enter your phone number to sign in or register</label>
+            <div class="phone-row">
+                <select id="countryCode" class="country-select">
+                    <option value="+44" selected>+44 (UK)</option>
+                    <option value="+1">+1 (US)</option>
+                    <option value="+61">+61 (AU)</option>
+                    <option value="+49">+49 (DE)</option>
+                    <option value="+33">+33 (FR)</option>
+                    <option value="+34">+34 (ES)</option>
+                    <option value="+39">+39 (IT)</option>
+                    <option value="+81">+81 (JP)</option>
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+86">+86 (CN)</option>
+                </select>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone number"
+                    autocomplete="username webauthn"
+                />
+            </div>
+            <button id="continueBtn" class="btn-primary">Continue</button>
+            <div id="status"></div>
+        </div>
+
+        <div id="otpView" class="otp-form hidden">
+            <p>Enter the 6-digit code sent to your phone</p>
+            <input
+                type="text"
+                id="otpCode"
+                placeholder="000000"
+                maxlength="6"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                autocomplete="one-time-code"
+            />
+            <button id="verifyOtpBtn" class="btn-primary">Verify</button>
+            <button id="resendOtpBtn" class="btn-link">Resend code</button>
+            <div id="otpStatus"></div>
+        </div>
+
+        <div id="verifyingView" class="verifying hidden">
+            <div class="spinner"></div>
+            <p>Verifying...</p>
+        </div>
+
+        <div id="loggedInView" class="logged-in hidden">
+            <p>Logged in as</p>
+            <p class="email" id="loggedInPhone"></p>
+            <div id="passkeySection" class="passkey-section"></div>
+            <div id="noteSection" class="note-section"></div>
+            <button id="logoutBtn" class="btn-secondary">Log out</button>
+        </div>
+    </div>
+
+    <script src="simplewebauthn-browser.min.js"></script>
+    <script src="qrcode.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

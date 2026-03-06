@@ -1,0 +1,22 @@
+{
+  "name": "passkey-totp-sms-infra",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.177.0",
+    "constructs": "^10.4.2",
+    "@aws-cdk/aws-lambda-go-alpha": "^2.177.0-alpha.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.0",
+    "aws-cdk": "^2.177.0",
+    "ts-node": "^10.9.2"
+  }
+}

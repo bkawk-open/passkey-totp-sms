@@ -1,0 +1,5 @@
+bootstrap
+function.zip
+api/passkey-api
+infra/node_modules
+infra/cdk.out
